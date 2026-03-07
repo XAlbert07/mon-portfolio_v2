@@ -7,6 +7,7 @@ export const siteConfig = {
   email: "albertsama07@gmail.com",
   github: "https://github.com/XAlbert07",
   linkedin: "https://www.linkedin.com/in/albert-sama-299a51193",
+  googleSiteVerification: "LMUM7u2FX-fjB7YudCFcSbfxYyG-CfoOptQozQoDuQ8",
   location: "Ouagadougou, Burkina Faso",
   keywords: [
     "developpeur frontend",

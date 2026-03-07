@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  verification: {
+    google: siteConfig.googleSiteVerification,
+  },
   robots: {
     index: true,
     follow: true,
