@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import CustomCursor from "./components/CustomCursor";
 import { bebasNeue, dmMono, dmSans } from "./fonts";
 import { getSiteUrl, siteConfig } from "./site-config";
 import "./globals.css";
@@ -71,7 +72,10 @@ export default function RootLayout({
       lang="fr"
       className={`${dmSans.variable} ${dmMono.variable} ${bebasNeue.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <CustomCursor />
+        {children}
+      </body>
     </html>
   );
 }

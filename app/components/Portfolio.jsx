@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import ProjectsGrid from "@/app/components/ProjectsGrid";
 import { projects } from "@/app/data/projects";
+import { siteConfig } from "@/app/site-config";
 
 const skills = [
   "React",
@@ -191,11 +192,16 @@ const navItems = [
   { id: "contact", label: "contact", href: "#contact" },
 ];
 
+const footerLinks = [
+  { href: "/developpeur-react-burkina-faso", label: "Developpeur React Burkina Faso" },
+  { href: "/freelance-nextjs-burkina-faso", label: "Freelance Next.js Burkina Faso" },
+  { href: "/refonte-frontend-react", label: "Refonte frontend React" },
+];
+
 export default function Portfolio() {
   const [active, setActive] = useState("accueil");
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
   const [isMobileViewport, setIsMobileViewport] = useState(false);
   const [contactForm, setContactForm] = useState({
     name: "",
@@ -208,27 +214,11 @@ export default function Portfolio() {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const cursorRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(hover: none), (pointer: coarse)");
-    const updateInputMode = () => setIsTouchDevice(mediaQuery.matches);
-
-    updateInputMode();
-
-    if (mediaQuery.addEventListener) {
-      mediaQuery.addEventListener("change", updateInputMode);
-      return () => mediaQuery.removeEventListener("change", updateInputMode);
-    }
-
-    mediaQuery.addListener(updateInputMode);
-    return () => mediaQuery.removeListener(updateInputMode);
   }, []);
 
   useEffect(() => {
@@ -245,21 +235,6 @@ export default function Portfolio() {
     mediaQuery.addListener(updateViewportMode);
     return () => mediaQuery.removeListener(updateViewportMode);
   }, []);
-
-  useEffect(() => {
-    if (isTouchDevice) {
-      return undefined;
-    }
-
-    const move = (e) => {
-      if (cursorRef.current) {
-        cursorRef.current.style.transform = `translate(${e.clientX - 8}px, ${e.clientY - 8}px)`;
-      }
-    };
-
-    window.addEventListener("mousemove", move);
-    return () => window.removeEventListener("mousemove", move);
-  }, [isTouchDevice]);
 
   useEffect(() => {
     const onResize = () => {
@@ -378,13 +353,6 @@ export default function Portfolio() {
 
   return (
     <div className="portfolio-page min-h-screen overflow-x-hidden bg-[#0a0a0a] text-[#f0ede6]">
-      {!isTouchDevice && (
-        <div
-          className="custom-cursor pointer-events-none fixed left-0 top-0 z-[9999] h-4 w-4 rounded-full bg-[#c8f04a] mix-blend-difference transition-transform duration-75 ease-linear"
-          ref={cursorRef}
-        />
-      )}
-
       <nav
         aria-label="Navigation principale"
         className={`site-nav ${
@@ -489,7 +457,7 @@ export default function Portfolio() {
           <div className="fade-up mb-6 flex items-center gap-3">
             <span className="dot-accent animate-[blink_2s_infinite]" />
             <span className="font-mono-custom text-xs uppercase tracking-[0.15em] text-[rgba(240,237,230,0.48)]">
-              Base a Ouagadougou, local ou a distance
+              Developpeur React & Next.js base a {siteConfig.location}
             </span>
           </div>
 
@@ -497,16 +465,16 @@ export default function Portfolio() {
             id="hero-title"
             className="hero-title font-display fade-up-2 mb-8 text-[clamp(42px,12vw,54px)] leading-[0.92] tracking-normal sm:text-[clamp(64px,10vw,140px)] sm:leading-[0.95] sm:tracking-[0.02em]"
           >
-            INTERFACES
+            DEVELOPPEUR
             <br />
-            <span className="text-[#c8f04a]">RAPIDES</span>
+            <span className="text-[#c8f04a]">REACT & NEXT.JS</span>
             <br />
-            & FIABLES
+            A KOUDOUGOU
           </h1>
 
           <p className="hero-copy fade-up-3 mb-12 max-w-[520px] text-lg font-light leading-[1.7] text-[rgba(240,237,230,0.6)]">
-            Developpeur frontend <span className="text-[#f0ede6]">React & Next.js</span>, je cree des interfaces web
-            claires, responsives et maintenables.
+            Base a <span className="text-[#f0ede6]">{siteConfig.location}</span>, je cree des interfaces web React &
+            Next.js claires, responsives et maintenables pour landing pages, sites interactifs et refontes frontend.
           </p>
 
           <div className="hero-pills fade-up-3">
@@ -716,15 +684,15 @@ export default function Portfolio() {
                 À PROPOS
               </h2>
               <p className="mb-6 text-base font-light leading-[1.9] text-[rgba(240,237,230,0.65)]">
-                Je suis <span className="font-medium text-[#f0ede6]">Albert Sama</span>, développeur frontend basé au Burkina Faso.
+                Je suis <span className="font-medium text-[#f0ede6]">Albert Sama</span>, developpeur React & Next.js base a {siteConfig.location}.
               </p>
               <p className="mb-6 text-base font-light leading-[1.9] text-[rgba(240,237,230,0.65)]">
-                Je travaille avec des clients locaux et a distance, avec des echanges simples et une communication
-                claire pour des missions ponctuelles, des refontes ciblees ou du renfort frontend.
+                J&apos;accompagne des clients locaux et a distance avec des echanges simples et une communication claire
+                pour des missions ponctuelles, des refontes ciblees ou du renfort frontend React / Next.js.
               </p>
               <p className="mb-10 text-base font-light leading-[1.9] text-[rgba(240,237,230,0.65)]">
-                Mon objectif : m&apos;integrer dans votre flux de travail sans friction et vous aider a livrer plus vite
-                cote frontend.
+                Mon objectif : clarifier le frontend, accelerer l&apos;execution et livrer des interfaces exploitables
+                sans friction pour votre equipe ou votre activite.
               </p>
 
               <div className="process-panel">
@@ -747,7 +715,7 @@ export default function Portfolio() {
               <div className="about-card">
                 <div className="absolute -top-px left-10 h-0.5 w-[60px] bg-[#c8f04a]" />
                 {[
-                  { label: "Localisation", value: "Ouagadougou, Burkina Faso" },
+                  { label: "Localisation", value: siteConfig.location },
                   { label: "Disponibilité", value: "Immédiate — local ou a distance" },
                   { label: "Langues", value: "Français, Anglais (technique)" },
                   { label: "Spécialité", value: "React & Next.js" },
@@ -778,8 +746,8 @@ export default function Portfolio() {
                 À CONFIER ?
               </h2>
               <p className="contact-intro">
-                Decrivez le contexte, le type d&apos;interface a produire, le delai souhaite et votre budget de depart. Je
-                reviens avec une reponse claire et exploitable.
+                Depuis {siteConfig.location}, j&apos;interviens sur des missions frontend locales ou a distance. Decrivez le
+                contexte, le type d&apos;interface a produire, le delai souhaite et votre budget de depart.
               </p>
 
               <div className="contact-highlights">
@@ -884,12 +852,26 @@ export default function Portfolio() {
       </section>
 
       <footer className="site-footer">
-        <span className="font-display text-lg tracking-[0.1em]">
-          ALBERT<span className="text-[#c8f04a]">.</span>
-        </span>
-        <span className="font-mono-custom text-[11px] text-[rgba(240,237,230,0.25)]">
-          © 2026 — Développeur Frontend React & Next.js
-        </span>
+        <div className="flex flex-col gap-2">
+          <span className="font-display text-lg tracking-[0.1em]">
+            ALBERT<span className="text-[#c8f04a]">.</span>
+          </span>
+          <span className="font-mono-custom text-[11px] text-[rgba(240,237,230,0.25)]">
+            © 2026 — Developpeur React & Next.js a {siteConfig.location}
+          </span>
+        </div>
+
+        <div className="flex flex-wrap justify-end gap-2">
+          {footerLinks.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="border border-[rgba(240,237,230,0.12)] px-3 py-2 text-[10px] uppercase tracking-[0.08em] text-[rgba(240,237,230,0.58)] transition-colors hover:text-[#c8f04a]"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
       </footer>
     </div>
   );

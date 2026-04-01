@@ -11,14 +11,53 @@ export default function Home() {
         "@id": `${siteUrl}/#person`,
         name: siteConfig.name,
         url: siteUrl,
-        jobTitle: "Developpeur frontend React et Next.js",
+        jobTitle: "Developpeur React et Next.js freelance",
         description: siteConfig.description,
         email: siteConfig.email,
         sameAs: [siteConfig.github, siteConfig.linkedin],
         address: {
           "@type": "PostalAddress",
-          addressLocality: "Ouagadougou",
-          addressCountry: "BF",
+          addressLocality: siteConfig.city,
+          addressCountry: siteConfig.countryCode,
+        },
+        homeLocation: {
+          "@type": "Place",
+          name: siteConfig.location,
+        },
+        knowsAbout: [
+          "React",
+          "Next.js",
+          "TypeScript",
+          "JavaScript",
+          "Tailwind CSS",
+          "Integration de maquettes",
+          "Refonte frontend",
+          "Interfaces web connectees",
+        ],
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": `${siteUrl}/#service`,
+        name: `${siteConfig.name} - Developpeur React & Next.js`,
+        url: siteUrl,
+        description: siteConfig.description,
+        areaServed: [
+          {
+            "@type": "City",
+            name: siteConfig.city,
+          },
+          {
+            "@type": "Country",
+            name: siteConfig.country,
+          },
+        ],
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: siteConfig.city,
+          addressCountry: siteConfig.countryCode,
+        },
+        provider: {
+          "@id": `${siteUrl}/#person`,
         },
         knowsAbout: [
           "React",
@@ -51,10 +90,10 @@ export default function Home() {
           "@id": `${siteUrl}/#website`,
         },
         about: {
-          "@id": `${siteUrl}/#person`,
+          "@id": `${siteUrl}/#service`,
         },
         mainEntity: {
-          "@id": `${siteUrl}/#person`,
+          "@id": `${siteUrl}/#service`,
         },
       },
     ],

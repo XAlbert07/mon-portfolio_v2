@@ -4,9 +4,9 @@ import ProjectsGrid from "@/app/components/ProjectsGrid";
 import { projects } from "@/app/data/projects";
 import { getSiteUrl, siteConfig } from "@/app/site-config";
 
-const pageTitle = `Projets | ${siteConfig.name}`;
+const pageTitle = `Projets React & Next.js | ${siteConfig.name}`;
 const pageDescription =
-  "Selection de projets frontend React et Next.js : landing pages, sites vitrines, interfaces web connectees et refontes frontend.";
+  `Selection de projets React et Next.js signes ${siteConfig.name}, developpeur base a ${siteConfig.location} : landing pages, sites vitrines, interfaces web connectees et refontes frontend.`;
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -93,8 +93,8 @@ export default function ProjectsPage() {
                 PROJETS
               </h1>
               <p className="projects-page-copy">
-                Landing pages, sites vitrines, interfaces web connectees et refontes frontend construites avec une
-                logique claire, un rendu propre et une base maintenable.
+                Selection de projets React et Next.js construits depuis {siteConfig.location}, avec une logique claire,
+                un rendu propre et une base maintenable.
               </p>
             </div>
           </div>
@@ -133,4 +133,3 @@ export default function ProjectsPage() {
     </>
   );
 }
-
