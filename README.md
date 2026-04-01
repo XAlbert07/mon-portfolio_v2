@@ -18,6 +18,18 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
+## Contact Form
+
+The contact form is handled by `app/api/contact/route.ts`.
+
+For the simplest setup:
+
+1. Copy `.env.example` to `.env.local`
+2. Set `RESEND_API_KEY`
+3. Optionally adjust `CONTACT_TO_EMAIL` and `CONTACT_FROM_EMAIL`
+
+If `RESEND_API_KEY` is not set, the route can still fall back to `CONTACT_FORM_WEBHOOK_URL`.
+
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
 ## Learn More
