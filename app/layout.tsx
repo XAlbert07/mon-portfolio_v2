@@ -11,6 +11,10 @@ export const metadata: Metadata = {
   title: siteConfig.title,
   description: siteConfig.description,
   applicationName: siteConfig.name,
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+  },
   keywords: [...siteConfig.keywords],
   authors: [{ name: siteConfig.name, url: "/" }],
   creator: siteConfig.name,
