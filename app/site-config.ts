@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Albert Sama",
   title: "Albert Sama | Développeur Frontend React et Next.js",
   description:
-    "Portfolio de Albert Sama, développeur frontend React et Next.js disponible pour des missions remote, des landing pages et des applications web connectées.",
+    "Portfolio de Albert Sama, développeur frontend React et Next.js pour landing pages, sites web interactifs, refontes frontend et interfaces web connectées.",
   locale: "fr_FR",
   email: "albertsama07@gmail.com",
   github: "https://github.com/XAlbert07",
