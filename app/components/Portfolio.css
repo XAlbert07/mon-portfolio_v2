@@ -885,6 +885,25 @@ html {
   transform: translateY(-1px);
 }
 
+.contact-method-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-method-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border: 1px solid rgba(200, 240, 74, 0.22);
+  border-radius: 999px;
+  color: #c8f04a;
+  background: rgba(200, 240, 74, 0.06);
+}
+
 .contact-method-label {
   font-family: var(--font-dm-mono), monospace;
   font-size: 10px;

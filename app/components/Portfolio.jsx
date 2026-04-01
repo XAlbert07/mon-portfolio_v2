@@ -162,24 +162,66 @@ const processSteps = [
   },
 ];
 
+const contactIcons = {
+  email: (
+    <span className="contact-method-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8">
+        <path d="M3.75 6.75h16.5v10.5H3.75z" />
+        <path d="m4.5 7.5 7.5 6 7.5-6" />
+      </svg>
+    </span>
+  ),
+  whatsapp: (
+    <span className="contact-method-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="currentColor">
+        <path d="M19.05 4.91A9.82 9.82 0 0 0 12.03 2C6.61 2 2.2 6.4 2.2 11.83c0 1.74.45 3.44 1.31 4.95L2 22l5.39-1.41a9.8 9.8 0 0 0 4.64 1.18h.01c5.42 0 9.83-4.41 9.83-9.83 0-2.63-1.02-5.1-2.82-7.03Zm-7.02 15.2h-.01a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.2.84.85-3.12-.2-.32a8.14 8.14 0 0 1-1.25-4.37c0-4.5 3.66-8.16 8.17-8.16 2.18 0 4.22.85 5.75 2.4a8.08 8.08 0 0 1 2.38 5.76c0 4.5-3.66 8.16-8.16 8.16Zm4.47-6.1c-.24-.12-1.4-.69-1.62-.77-.22-.08-.38-.12-.53.12-.16.24-.61.76-.75.92-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.92-1.17-.71-.63-1.19-1.4-1.33-1.64-.14-.24-.01-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.53-1.28-.73-1.75-.19-.46-.39-.4-.53-.41h-.45c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.33.98 2.49c.12.16 1.69 2.57 4.09 3.61.57.25 1.02.39 1.37.5.58.18 1.11.15 1.53.09.47-.07 1.4-.57 1.6-1.13.2-.56.2-1.04.14-1.14-.05-.1-.2-.16-.43-.28Z" />
+      </svg>
+    </span>
+  ),
+  linkedin: (
+    <span className="contact-method-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="currentColor">
+        <path d="M6.94 8.5H3.56V20h3.38V8.5Zm.22-3.56C7.14 3.77 6.23 3 5.28 3c-.96 0-1.78.77-1.78 1.94 0 1.15.8 1.94 1.74 1.94h.02c.98 0 1.9-.79 1.9-1.94ZM20.44 13.02c0-3.47-1.85-5.08-4.32-5.08-1.99 0-2.88 1.09-3.38 1.85V8.5H9.36c.05.85 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.68.12-.93.27-.68.87-1.39 1.88-1.39 1.33 0 1.86 1.02 1.86 2.51V20H20v-6.98l.44-.01Z" />
+      </svg>
+    </span>
+  ),
+  github: (
+    <span className="contact-method-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="currentColor">
+        <path d="M12 .5C5.65.5.5 5.8.5 12.34c0 5.23 3.3 9.67 7.88 11.24.58.11.79-.26.79-.57 0-.28-.01-1.2-.02-2.18-3.2.71-3.88-1.39-3.88-1.39-.52-1.38-1.28-1.75-1.28-1.75-1.05-.74.08-.73.08-.73 1.16.08 1.77 1.23 1.77 1.23 1.03 1.82 2.7 1.29 3.36.98.1-.77.4-1.29.73-1.59-2.56-.3-5.26-1.33-5.26-5.9 0-1.3.45-2.36 1.19-3.2-.12-.3-.52-1.5.11-3.13 0 0 .97-.32 3.19 1.22a10.7 10.7 0 0 1 5.8 0c2.21-1.54 3.18-1.22 3.18-1.22.64 1.63.24 2.83.12 3.13.74.84 1.18 1.9 1.18 3.2 0 4.58-2.7 5.6-5.28 5.9.41.37.78 1.08.78 2.18 0 1.58-.01 2.84-.01 3.23 0 .31.21.69.8.57 4.57-1.57 7.86-6.01 7.86-11.24C23.5 5.8 18.35.5 12 .5Z" />
+      </svg>
+    </span>
+  ),
+};
+
 const contactOptions = [
   {
     label: "Email direct",
     value: "albertsama07@gmail.com",
     detail: "Le canal le plus simple pour lancer un devis ou un échange.",
     href: "mailto:albertsama07@gmail.com",
+    icon: contactIcons.email,
+  },
+  {
+    label: "WhatsApp",
+    value: "+226 04 37 44 34",
+    detail: "Pour une prise de contact rapide, surtout sur mobile ou en local.",
+    href: "https://wa.me/22604374434",
+    icon: contactIcons.whatsapp,
   },
   {
     label: "LinkedIn",
     value: "Profil professionnel",
     detail: "Pour une prise de contact rapide ou un premier échange.",
     href: "https://www.linkedin.com/in/albert-sama-299a51193",
+    icon: contactIcons.linkedin,
   },
   {
     label: "GitHub",
     value: "Code & références",
     detail: "Pour voir ma manière de structurer et livrer un projet.",
     href: "https://github.com/XAlbert07",
+    icon: contactIcons.github,
   },
 ];
 
@@ -767,7 +809,10 @@ export default function Portfolio() {
                     target={item.href.startsWith("mailto:") ? undefined : "_blank"}
                     rel={item.href.startsWith("mailto:") ? undefined : "noreferrer"}
                   >
-                    <span className="contact-method-label">{item.label}</span>
+                    <div className="contact-method-head">
+                      {item.icon ? item.icon : null}
+                      <span className="contact-method-label">{item.label}</span>
+                    </div>
                     <strong className="contact-method-value">{item.value}</strong>
                     <span className="contact-method-detail">{item.detail}</span>
                   </a>
