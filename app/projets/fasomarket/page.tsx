@@ -1,7 +1,6 @@
-import { existsSync } from "node:fs";
-import path from "node:path";
 import type { Metadata } from "next";
-import CaseStudy, { type CaseGalleryItem, type CaseShot } from "@/app/components/CaseStudy";
+import CaseStudy from "@/app/components/CaseStudy";
+import { galleryIfExists, shotIfExists } from "@/app/lib/case-assets";
 import { projects } from "@/app/data/projects";
 import { getSiteUrl, siteConfig } from "@/app/site-config";
 
@@ -12,21 +11,15 @@ const pageDescription =
   "Étude de cas de FasoMarket, une plateforme de petites annonces pour le Burkina Faso : messagerie en temps réel, avis fiables, modération, PWA et application Android.";
 
 /**
- * Les captures sont générées par `node scripts/capture-fasomarket.mjs`.
+ * Les captures sont générées par `node scripts/capture-sites.mjs fasomarket`.
  * Chaque image n'est affichée que si son fichier existe dans public/projets.
  */
-const hasFile = (file: string) => existsSync(path.join(process.cwd(), "public", "projets", file));
+const heroShot = shotIfExists(
+  "fasomarket-accueil.webp",
+  "Page d'accueil de FasoMarket : recherche, catégories et annonces récentes",
+);
 
-const heroShot: CaseShot | undefined = hasFile("fasomarket-accueil.webp")
-  ? {
-      src: "/projets/fasomarket-accueil.webp",
-      alt: "Page d'accueil de FasoMarket : recherche, catégories et annonces récentes",
-      width: 1200,
-      height: 720,
-    }
-  : undefined;
-
-const gallery: CaseGalleryItem[] = [
+const gallery = galleryIfExists([
   {
     file: "fasomarket-annonces.webp",
     alt: "Liste des annonces de FasoMarket avec recherche et filtres",
@@ -42,9 +35,7 @@ const gallery: CaseGalleryItem[] = [
     alt: "Guide pour publier une annonce sur FasoMarket",
     caption: "Guide pour publier une annonce.",
   },
-]
-  .filter((item) => hasFile(item.file))
-  .map(({ file, ...item }) => ({ ...item, src: `/projets/${file}`, width: 1200, height: 720 }));
+]);
 
 export const metadata: Metadata = {
   title: pageTitle,

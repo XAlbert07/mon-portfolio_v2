@@ -14,7 +14,7 @@ export type CaseStudyData = {
   title: string;
   lead: string;
   meta: { label: string; value: string }[];
-  demoUrl: string;
+  demoUrl?: string;
   codeUrl?: string;
   note?: string;
   heroShot?: CaseShot;
@@ -23,9 +23,9 @@ export type CaseStudyData = {
   features: string[];
   decisions: { title: string; text: string }[];
   gallery?: CaseGalleryItem[];
-  architecture: { step: string; name: string; text: string }[];
+  architecture?: { step: string; name: string; text: string }[];
   qualityTitle?: string;
-  quality: string[];
+  quality?: string[];
   jsonLd: Record<string, unknown>;
 };
 
@@ -74,12 +74,19 @@ export default function CaseStudy({ data }: { data: CaseStudyData }) {
             </div>
 
             <div className="case-actions">
-              <a href={data.demoUrl} target="_blank" rel="noreferrer" className="cta-btn">
-                Voir le site <span aria-hidden="true">→</span>
-              </a>
+              {data.demoUrl ? (
+                <a href={data.demoUrl} target="_blank" rel="noreferrer" className="cta-btn">
+                  Voir le site <span aria-hidden="true">→</span>
+                </a>
+              ) : null}
               {data.codeUrl ? (
-                <a href={data.codeUrl} target="_blank" rel="noreferrer" className="ghost-btn">
-                  Code source
+                <a
+                  href={data.codeUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={data.demoUrl ? "ghost-btn" : "cta-btn"}
+                >
+                  Code source {data.demoUrl ? null : <span aria-hidden="true">→</span>}
                 </a>
               ) : null}
             </div>
@@ -164,11 +171,12 @@ export default function CaseStudy({ data }: { data: CaseStudyData }) {
           </section>
         ) : null}
 
+        {data.architecture && data.architecture.length > 0 ? (
         <section className="case-section">
           <div className="mx-auto max-w-[1100px]">
             <h2 className={h2Class}>ARCHITECTURE</h2>
             <ol className="case-arch">
-              {data.architecture.map((node) => (
+              {data.architecture!.map((node) => (
                 <li key={node.name}>
                   <span className="font-mono-custom">{node.step}</span>
                   <strong>{node.name}</strong>
@@ -178,17 +186,20 @@ export default function CaseStudy({ data }: { data: CaseStudyData }) {
             </ol>
           </div>
         </section>
+        ) : null}
 
+        {data.quality && data.quality.length > 0 ? (
         <section className="case-section">
           <div className="mx-auto max-w-[1100px]">
             <h2 className={h2Class}>{data.qualityTitle ?? "QUALITÉ ET DÉPLOIEMENT"}</h2>
             <ul className="case-list">
-              {data.quality.map((item) => (
+              {data.quality!.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
           </div>
         </section>
+        ) : null}
 
         <section className="compact-section">
           <div className="mx-auto max-w-[1100px] projects-page-cta">

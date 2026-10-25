@@ -37,9 +37,11 @@ export function FeaturedProject({ project }: { project: Project }) {
               Lire l&apos;étude de cas <span aria-hidden="true">→</span>
             </Link>
           ) : null}
-          <a href={project.link} target="_blank" rel="noreferrer" className="ghost-btn">
-            Voir la démo
-          </a>
+          {project.link ? (
+            <a href={project.link} target="_blank" rel="noreferrer" className="ghost-btn">
+              Voir la démo
+            </a>
+          ) : null}
           {project.github ? (
             <a href={project.github} target="_blank" rel="noreferrer" className="ghost-btn">
               Code source
@@ -51,7 +53,7 @@ export function FeaturedProject({ project }: { project: Project }) {
       {main ? (
         <div className="feat-media">
           <a
-            href={project.link}
+            href={project.link ?? project.github}
             target="_blank"
             rel="noreferrer"
             className="feat-shot feat-shot-main"
@@ -92,6 +94,17 @@ export function CompactProjects({ projects }: { projects: Project[] }) {
     <div className="mini-grid">
       {projects.map((project) => (
         <article key={project.id} className="mini-card">
+          {project.thumb ? (
+            <div className="mini-thumb">
+              <Image
+                src={project.thumb.src}
+                alt={project.thumb.alt}
+                width={project.thumb.width}
+                height={project.thumb.height}
+                sizes="(max-width: 900px) 100vw, (max-width: 1100px) 50vw, 340px"
+              />
+            </div>
+          ) : null}
           <div className="mini-top">
             <span className="font-mono-custom text-xs text-[rgba(240,237,230,0.45)]">{project.number}</span>
             <span className="tag-pill">{project.tag}</span>
@@ -105,15 +118,17 @@ export function CompactProjects({ projects }: { projects: Project[] }) {
                 Étude de cas <span aria-hidden="true">→</span>
               </Link>
             ) : null}
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noreferrer"
-              className={project.slug ? "mini-link mini-link-quiet" : "mini-link"}
-              aria-label={`Voir le projet ${project.title}`}
-            >
-              Voir le projet {project.slug ? null : <span aria-hidden="true">→</span>}
-            </a>
+            {project.link ? (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noreferrer"
+                className={project.slug ? "mini-link mini-link-quiet" : "mini-link"}
+                aria-label={`Voir le projet ${project.title}`}
+              >
+                Voir le projet {project.slug ? null : <span aria-hidden="true">→</span>}
+              </a>
+            ) : null}
             {project.github ? (
               <a
                 href={project.github}

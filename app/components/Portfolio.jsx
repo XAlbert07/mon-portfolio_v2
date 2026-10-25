@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { CompactProjects, FeaturedProject } from "@/app/components/ProjectsShowcase";
-import { projects } from "@/app/data/projects";
+import { projects as defaultProjects } from "@/app/data/projects";
 import { siteConfig } from "@/app/site-config";
 
 const skillGroups = [
@@ -97,7 +97,7 @@ const footerLinks = [
 
 const emptyForm = { name: "", email: "", message: "", company: "" };
 
-export default function Portfolio() {
+export default function Portfolio({ projects = defaultProjects }) {
   const [active, setActive] = useState("accueil");
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);

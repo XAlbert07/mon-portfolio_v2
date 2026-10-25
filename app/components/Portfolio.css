@@ -1656,6 +1656,26 @@ html {
   border-color: rgba(200, 240, 74, 0.3);
 }
 
+.mini-thumb {
+  overflow: hidden;
+  margin: -28px -28px 4px;
+  border-bottom: 1px solid rgba(240, 237, 230, 0.08);
+  background: #111111;
+}
+
+.mini-thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.5s ease;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .mini-card:hover .mini-thumb img {
+    transform: scale(1.03);
+  }
+}
+
 .mini-top {
   display: flex;
   align-items: center;

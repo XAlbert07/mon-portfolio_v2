@@ -15,12 +15,17 @@ export type Project = {
   outcome: string;
   deliverables: string[];
   stack: string[];
-  link: string;
+  /** Site en ligne (absent tant que le projet n'est pas déployé). */
+  link?: string;
   github?: string;
   /** Slug de la page d'étude de cas (/projets/[slug]), si elle existe. */
   slug?: string;
   /** Chiffres clés affichés sur le projet phare. */
   facts?: { value: string; label: string }[];
+  /** Vignette affichée sur la carte compacte de l'accueil. */
+  thumb?: ProjectImage;
+  /** Vignette ajoutée automatiquement si le fichier existe dans public/projets (voir withThumbs). */
+  autoThumb?: { file: string; alt: string };
   /** Captures affichées sur l'accueil (la première est la principale). */
   screenshots?: ProjectImage[];
 };
@@ -82,31 +87,94 @@ export const projects: Project[] = [
     link: "https://faso-market.vercel.app/",
     github: "https://github.com/XAlbert07/FasoMarket",
     slug: "fasomarket",
+    autoThumb: {
+      file: "fasomarket-accueil.webp",
+      alt: "Page d'accueil de FasoMarket : recherche, catégories et annonces récentes",
+    },
+  },
+  {
+    id: 5,
+    number: "03",
+    title: "CV Creator Pro",
+    tag: "Application Web",
+    desc: "Générateur de CV gratuit et sans inscription : 22 modèles, aperçu en direct, export PDF et Word, données gardées dans le navigateur.",
+    challenge:
+      "Proposer 22 mises en page à partir des mêmes données, avec des exports PDF et Word fidèles, sans compte ni serveur.",
+    outcome:
+      "Un outil complet côté navigateur : assistant par métier, versions multiples, réorganisation des sections et trois formats d'export.",
+    deliverables: ["22 modèles", "Export PDF et Word", "Données privées"],
+    stack: ["React", "TypeScript", "Vite", "Tailwind"],
+    github: "https://github.com/XAlbert07/Generator-CV",
+    slug: "cv-creator-pro",
+    thumb: {
+      src: "/projets/cv-creator-editeur.webp",
+      alt: "Éditeur de CV Creator Pro avec le choix des modèles et l'aperçu en direct",
+      width: 1200,
+      height: 720,
+    },
+  },
+  {
+    id: 6,
+    number: "04",
+    title: "Web Digi",
+    tag: "Site Vitrine",
+    desc: "Site vitrine d'une agence web et infographie : 7 pages, services détaillés, FAQ et référencement soigné, sans framework.",
+    challenge:
+      "Présenter trois métiers clairement et être trouvé sur les moteurs de recherche, avec un site léger et sans étape de build.",
+    outcome:
+      "Un site de 7 pages avec header et footer partagés, données structurées sur chaque page et sitemap généré par script.",
+    deliverables: ["7 pages", "SEO technique", "Sans framework"],
+    stack: ["HTML", "CSS", "JavaScript"],
+    link: "https://agence-web-phi.vercel.app/",
+    github: "https://github.com/XAlbert07/Agence-Web",
+    slug: "web-digi",
+    autoThumb: {
+      file: "agence-web-accueil.webp",
+      alt: "Page d'accueil du site Web Digi, agence web et infographie",
+    },
   },
   {
     id: 2,
-    number: "03",
+    number: "05",
     title: "Site Vitrine Restaurant",
     tag: "Site Vitrine",
-    desc: "Site web pour un restaurant gastronomique avec menu interactif et système de réservation.",
-    challenge: "Valoriser l'identité du restaurant et simplifier la réservation depuis mobile comme desktop.",
+    desc: "Site vitrine d'un restaurant gastronomique fictif : carte filtrable, effets 3D sur les plats et formulaire de réservation.",
+    challenge:
+      "Faire ressentir l'univers d'un restaurant gastronomique et conduire le visiteur vers deux actions : découvrir la carte, réserver.",
     outcome:
-      "Une navigation directe, un univers plus lisible et un site centré sur les actions utiles : consulter, choisir, réserver.",
-    deliverables: ["Menu interactif", "Parcours de réservation", "Responsive premium"],
-    stack: ["HTML", "CSS", "Tailwind", "JavaScript"],
+      "Un site léger en Tailwind et JavaScript modulaire, avec une carte générée à partir de données et des animations au défilement.",
+    deliverables: ["Carte filtrable", "Effet 3D sur les plats", "Formulaire de réservation"],
+    stack: ["HTML", "Tailwind", "JavaScript"],
     link: "https://restaurant-site-henna.vercel.app/",
+    github: "https://github.com/XAlbert07/restaurant-site",
+    slug: "restaurant-etoile-dor",
+    thumb: {
+      src: "/projets/restaurant-accueil.webp",
+      alt: "Page d'accueil du site L'Étoile d'Or, restaurant gastronomique",
+      width: 1200,
+      height: 720,
+    },
   },
   {
     id: 3,
-    number: "04",
+    number: "06",
     title: "Landing Page Concours",
     tag: "Landing Page",
-    desc: "Page d'atterrissage pour une plateforme de préparation aux concours, design simple et fluide.",
-    challenge: "Présenter une offre pédagogique de manière rapide, claire et orientée conversion.",
+    desc: "Landing page d'un service de préparation aux concours : profils, méthode, tarifs en FCFA et inscription, en Tailwind CSS.",
+    challenge:
+      "Faire comprendre en quelques secondes pour qui est la formation, comment elle fonctionne, combien elle coûte et comment s'inscrire.",
     outcome:
-      "Une landing page légère, structurée et efficace pour capter l'attention puis pousser à la prise de contact.",
-    deliverables: ["Message clarifié", "Sections courtes", "Chargement rapide"],
-    stack: ["HTML", "CSS", "Tailwind", "JavaScript"],
+      "Une page unique, légère et lisible sur mobile, structurée pour répondre aux questions du visiteur dans l'ordre.",
+    deliverables: ["Parcours par profil", "Tarifs en FCFA", "Inscription et WhatsApp"],
+    stack: ["HTML", "Tailwind", "JavaScript"],
     link: "https://landing-page-c6efbe5g5-alberts-projects-394db913.vercel.app/",
+    github: "https://github.com/XAlbert07/landing-page",
+    slug: "landing-concourselite",
+    thumb: {
+      src: "/projets/landing-accueil.webp",
+      alt: "Page d'accueil de la landing page ConcoursElite",
+      width: 1200,
+      height: 720,
+    },
   },
 ];

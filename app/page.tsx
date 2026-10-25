@@ -1,5 +1,6 @@
 import Portfolio from "@/app/components/Portfolio";
 import { projects } from "@/app/data/projects";
+import { withThumbs } from "@/app/lib/case-assets";
 import { getSiteUrl, siteConfig } from "@/app/site-config";
 
 export default function Home() {
@@ -118,7 +119,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <main id="main-content">
-        <Portfolio />
+        <Portfolio projects={withThumbs(projects)} />
       </main>
     </>
   );
