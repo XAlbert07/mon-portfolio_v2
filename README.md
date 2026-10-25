@@ -147,7 +147,7 @@ Lorsque tu ajoutes ou modifies un projet :
 
 ## Configuration SEO et URL du site
 
-Le site utilise `NEXT_PUBLIC_SITE_URL` pour définir son URL canonique. En environnement Vercel, le code peut également utiliser les variables `VERCEL_PROJECT_PRODUCTION_URL` ou `VERCEL_URL). Pour la production, vérifie que la variable pointe vers le domaine public final afin que les métadonnées, le sitemap et les données structurées utilisent la bonne URL.
+Le site utilise `NEXT_PUBLIC_SITE_URL` pour définir son URL canonique. En environnement Vercel, le code peut également utiliser les variables `VERCEL_PROJECT_PRODUCTION_URL` ou `VERCEL_URL`. Pour la production, vérifie que la variable pointe vers le domaine public final afin que les métadonnées, le sitemap et les données structurées utilisent la bonne URL.
 
 ## Déploiement
 
