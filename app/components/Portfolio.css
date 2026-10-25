@@ -620,6 +620,12 @@ html {
   display: none;
 }
 
+.project-actions {
+  display: flex;
+  flex-shrink: 0;
+  gap: 10px;
+}
+
 .project-summary {
   max-width: 700px;
   margin-bottom: 24px;
@@ -1360,6 +1366,11 @@ html {
   .project-card-header {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .project-actions {
+    width: 100%;
+    flex-direction: column;
   }
 
   .project-link {

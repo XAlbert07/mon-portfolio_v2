@@ -14,6 +14,7 @@ import { useEffect, useState } from "react";
  * @property {readonly string[]} deliverables
  * @property {readonly string[]} stack
  * @property {string} link
+ * @property {string} [github]
  * @property {string} number
  */
 
@@ -100,21 +101,41 @@ export default function ProjectsGrid({
                   {project.title}
                 </h3>
               </div>
-              <a
-                className={`project-link border text-lg no-underline transition-all duration-300 ${
-                  hoveredProject === project.id
-                    ? "rotate-45 border-[#c8f04a] text-[#c8f04a]"
-                    : "border-[rgba(240,237,230,0.15)] text-[rgba(240,237,230,0.4)]"
-                }`}
-                href={project.link}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={`Voir le projet ${project.title}`}
-              >
-                <span aria-hidden="true" className="project-link-icon">→</span>
-                <span className="project-link-label">Voir le projet</span>
-                <span className="sr-only">{project.title}</span>
-              </a>
+              <div className="project-actions">
+                {project.github ? (
+                  <a
+                    className={`project-link project-link-code border no-underline transition-all duration-300 ${
+                      hoveredProject === project.id
+                        ? "border-[#c8f04a] text-[#c8f04a]"
+                        : "border-[rgba(240,237,230,0.15)] text-[rgba(240,237,230,0.4)]"
+                    }`}
+                    href={project.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Code source du projet ${project.title}`}
+                  >
+                    <span aria-hidden="true" className="project-link-icon font-mono-custom text-[13px]">
+                      {"</>"}
+                    </span>
+                    <span className="project-link-label">Code source</span>
+                  </a>
+                ) : null}
+                <a
+                  className={`project-link border text-lg no-underline transition-all duration-300 ${
+                    hoveredProject === project.id
+                      ? "rotate-45 border-[#c8f04a] text-[#c8f04a]"
+                      : "border-[rgba(240,237,230,0.15)] text-[rgba(240,237,230,0.4)]"
+                  }`}
+                  href={project.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Voir le projet ${project.title}`}
+                >
+                  <span aria-hidden="true" className="project-link-icon">→</span>
+                  <span className="project-link-label">Voir le projet</span>
+                  <span className="sr-only">{project.title}</span>
+                </a>
+              </div>
             </div>
 
             <p className="project-summary">{project.desc}</p>
