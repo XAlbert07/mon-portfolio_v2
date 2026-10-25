@@ -72,14 +72,16 @@ export const projects: Project[] = [
     number: "02",
     title: "FasoMarket",
     tag: "Application Web",
-    desc: "Plateforme de petites annonces avec authentification complète, gestion de profils vendeurs et base de données en temps réel.",
+    desc: "Plateforme de petites annonces pour le Burkina Faso : messagerie en temps réel, avis liés à de vrais échanges, modération et application Android.",
     challenge:
-      "Concevoir un MVP clair avec comptes utilisateurs, publication d'annonces et profils vendeurs sans rendre l'interface lourde.",
+      "Offrir une alternative numérique à la vente entre particuliers, simple à utiliser mais fiable : avis crédibles, modération et fluidité sur mobile.",
     outcome:
-      "Une base produit solide, un parcours utilisateur lisible et une structure prête à évoluer vers de nouvelles fonctionnalités.",
-    deliverables: ["Authentification", "Profils vendeurs", "Données temps réel"],
+      "Une plateforme complète en ligne, installable en PWA et empaquetée en application Android, avec un espace d'administration en 5 sections.",
+    deliverables: ["Messagerie temps réel", "Avis fiables", "PWA et Android"],
     stack: ["React", "TypeScript", "Tailwind", "Supabase"],
     link: "https://faso-market.vercel.app/",
+    github: "https://github.com/XAlbert07/FasoMarket",
+    slug: "fasomarket",
   },
   {
     id: 2,

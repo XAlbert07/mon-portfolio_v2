@@ -1683,6 +1683,12 @@ html {
   color: rgba(240, 237, 230, 0.58);
 }
 
+.mini-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+
 .mini-link {
   align-self: flex-start;
   padding-bottom: 2px;
@@ -1694,6 +1700,15 @@ html {
 }
 
 .mini-link:hover {
+  border-bottom-color: #c8f04a;
+}
+
+.mini-link-quiet {
+  color: rgba(240, 237, 230, 0.7);
+}
+
+.mini-link-quiet:hover {
+  color: #c8f04a;
   border-bottom-color: #c8f04a;
 }
 

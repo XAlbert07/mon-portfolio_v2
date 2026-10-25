@@ -99,15 +99,33 @@ export function CompactProjects({ projects }: { projects: Project[] }) {
           <h3 className="mini-title">{project.title}</h3>
           <p className="mini-desc">{project.desc}</p>
           <p className="mini-stack font-mono-custom">{project.stack.join(" · ")}</p>
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noreferrer"
-            className="mini-link"
-            aria-label={`Voir le projet ${project.title}`}
-          >
-            Voir le projet <span aria-hidden="true">→</span>
-          </a>
+          <div className="mini-links">
+            {project.slug ? (
+              <Link href={`/projets/${project.slug}`} className="mini-link">
+                Étude de cas <span aria-hidden="true">→</span>
+              </Link>
+            ) : null}
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noreferrer"
+              className={project.slug ? "mini-link mini-link-quiet" : "mini-link"}
+              aria-label={`Voir le projet ${project.title}`}
+            >
+              Voir le projet {project.slug ? null : <span aria-hidden="true">→</span>}
+            </a>
+            {project.github ? (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noreferrer"
+                className="mini-link mini-link-quiet"
+                aria-label={`Code source du projet ${project.title}`}
+              >
+                Code source
+              </a>
+            ) : null}
+          </div>
         </article>
       ))}
     </div>
