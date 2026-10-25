@@ -6,7 +6,7 @@ import { getSiteUrl, siteConfig } from "@/app/site-config";
 
 const pageTitle = `Projets React & Next.js | ${siteConfig.name}`;
 const pageDescription =
-  `Selection de projets React et Next.js signes ${siteConfig.name}, developpeur base a ${siteConfig.location} : landing pages, sites vitrines, interfaces web connectees et refontes frontend.`;
+  `Sélection de projets React et Next.js signés ${siteConfig.name}, développeur basé à ${siteConfig.location} : landing pages, sites vitrines, interfaces web connectées et refontes frontend.`;
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -87,13 +87,13 @@ export default function ProjectsPage() {
 
             <div className="projects-page-intro">
               <p className="font-mono-custom mb-4 text-[11px] uppercase tracking-[0.15em] text-[#c8f04a]">
-                Selection complete
+                Sélection complète
               </p>
               <h1 className="font-display mb-6 text-[clamp(52px,8vw,112px)] leading-none">
                 PROJETS
               </h1>
               <p className="projects-page-copy">
-                Selection de projets React et Next.js construits depuis {siteConfig.location}, avec une logique claire,
+                Sélection de projets React et Next.js construits depuis {siteConfig.location}, avec une logique claire,
                 un rendu propre et une base maintenable.
               </p>
             </div>
@@ -115,7 +115,7 @@ export default function ProjectsPage() {
               <h2 className="font-display text-[clamp(36px,5vw,64px)] leading-none">
                 UN PROJET
                 <br />
-                A LANCER ?
+                À LANCER ?
               </h2>
             </div>
 
@@ -124,7 +124,7 @@ export default function ProjectsPage() {
                 Discuter de votre projet
               </Link>
               <Link href="/" className="ghost-btn">
-                Retour a l&apos;accueil
+                Retour à l&apos;accueil
               </Link>
             </div>
           </div>

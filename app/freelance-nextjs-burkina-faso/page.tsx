@@ -5,7 +5,7 @@ import { siteConfig } from "@/app/site-config";
 
 const pageTitle = `Freelance Next.js au Burkina Faso | ${siteConfig.name}`;
 const pageDescription =
-  `Freelance Next.js base a ${siteConfig.city}, ${siteConfig.country}. Landing pages, sites performants, SEO technique de base et interfaces web connectees.`;
+  `Freelance Next.js basé à ${siteConfig.city}, ${siteConfig.country}. Landing pages, sites performants, SEO technique de base et interfaces web connectées.`;
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -50,32 +50,32 @@ export default function NextJsFreelancePage() {
           AU BURKINA FASO
         </>
       }
-      description={`Je developpe des sites et interfaces Next.js depuis ${siteConfig.location}, avec un travail cible sur la performance percue, la clarte du frontend et une base technique simple a faire evoluer.`}
+      description={`Je développe des sites et interfaces Next.js depuis ${siteConfig.location}, avec un travail ciblé sur la performance perçue, la clarté du frontend et une base technique simple à faire évoluer.`}
       sections={[
         {
           title: "Pourquoi choisir Next.js ?",
           paragraphs: [
-            "Next.js est pertinent quand il faut un site rapide, bien structure et pret a grandir sans changer toute la base plus tard. Il convient tres bien aux landing pages, sites vitrines premium, interfaces web connectees et projets React qui veulent une structure plus solide.",
-            "Dans un cadre freelance, l'interet est aussi de livrer un projet plus propre des le depart : routage clair, bonnes bases SEO, optimisation des assets et organisation front plus maintenable.",
+            "Next.js est pertinent quand il faut un site rapide, bien structuré et prêt à grandir sans changer toute la base plus tard. Il convient très bien aux landing pages, sites vitrines premium, interfaces web connectées et projets React qui veulent une structure plus solide.",
+            "Dans un cadre freelance, l'intérêt est aussi de livrer un projet plus propre dès le départ : routage clair, bonnes bases SEO, optimisation des assets et organisation front plus maintenable.",
           ],
         },
         {
-          title: "Les missions les plus adaptees",
+          title: "Les missions les plus adaptées",
           paragraphs: [
-            "Je recommande surtout Next.js quand le projet a besoin de vitesse d'affichage, d'une bonne structure de pages et d'un front facile a reprendre. C'est moins une question de tendance qu'une question de pertinence pour le type de site ou d'outil a construire.",
+            "Je recommande surtout Next.js quand le projet a besoin de vitesse d'affichage, d'une bonne structure de pages et d'un front facile à reprendre. C'est moins une question de tendance qu'une question de pertinence pour le type de site ou d'outil à construire.",
           ],
           points: [
-            "Landing page orientee acquisition ou prise de contact",
+            "Landing page orientée acquisition ou prise de contact",
             "Site vitrine moderne avec contenu bien structure",
-            "Interface connectee a une API, un CMS ou une base de donnees",
+            "Interface connectée à une API, un CMS ou une base de données",
             "Refonte d'un frontend React vers une base plus propre",
           ],
         },
         {
-          title: "Ma facon de travailler",
+          title: "Ma façon de travailler",
           paragraphs: [
-            "Je travaille sur un perimetre frontend clair : structure, composants, responsive, integration et connection aux donnees. L'objectif n'est pas de vendre trop large, mais de livrer un resultat fiable sur le bon perimetre.",
-            `Depuis ${siteConfig.city}, j'accompagne des projets locaux ou a distance avec la meme logique : echanges simples, delais clarifies et decisions concretes sur le rendu final.`,
+            "Je travaille sur un périmètre frontend clair : structure, composants, responsive, intégration et connection aux données. L'objectif n'est pas de vendre trop large, mais de livrer un résultat fiable sur le bon périmètre.",
+            `Depuis ${siteConfig.city}, j'accompagne des projets locaux ou à distance avec la même logique : échanges simples, délais clarifies et decisions concrètes sur le rendu final.`,
           ],
         },
       ]}
@@ -83,24 +83,24 @@ export default function NextJsFreelancePage() {
         { label: "Localisation", value: siteConfig.location },
         { label: "Stack", value: "Next.js, React, TypeScript, SEO technique de base" },
         { label: "Formats", value: "Landing pages, sites vitrines, interfaces web" },
-        { label: "Objectif", value: "Performance, clarte, maintenance" },
+        { label: "Objectif", value: "Performance, clarté, maintenance" },
       ]}
       relatedLinks={[
-        { href: "/developpeur-react-burkina-faso", label: "Developpeur React" },
+        { href: "/developpeur-react-burkina-faso", label: "Développeur React" },
         { href: "/refonte-frontend-react", label: "Refonte frontend" },
-        { href: "/projets", label: "Voir les projets" },
+        { href: "/#projets", label: "Voir les projets" },
       ]}
       ctaTitle={
         <>
           UN SITE NEXT.JS
           <br />
-          A LANCER ?
+          À LANCER ?
         </>
       }
-      ctaText="Si vous avez besoin d'un site rapide, d'une refonte frontend ou d'une interface connectee en Next.js, je peux vous proposer un cadrage simple puis une execution propre."
+      ctaText="Si vous avez besoin d'un site rapide, d'une refonte frontend ou d'une interface connectée en Next.js, je peux vous proposer un cadrage simple puis une exécution propre."
       primaryCtaHref="/#contact"
       primaryCtaLabel="Demander un devis"
-      secondaryCtaHref="/projets"
+      secondaryCtaHref="/#projets"
       secondaryCtaLabel="Voir les projets"
     />
   );

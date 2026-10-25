@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -15,6 +16,7 @@ import { useEffect, useState } from "react";
  * @property {readonly string[]} stack
  * @property {string} link
  * @property {string} [github]
+ * @property {{ src: string, alt: string, width: number, height: number }} [image]
  * @property {string} number
  */
 
@@ -137,6 +139,25 @@ export default function ProjectsGrid({
                 </a>
               </div>
             </div>
+
+            {project.image ? (
+              <a
+                className="project-media"
+                href={project.link}
+                target="_blank"
+                rel="noreferrer"
+                tabIndex={-1}
+                aria-hidden="true"
+              >
+                <Image
+                  src={project.image.src}
+                  alt={project.image.alt}
+                  width={project.image.width}
+                  height={project.image.height}
+                  sizes="(max-width: 1100px) 100vw, 1036px"
+                />
+              </a>
+            ) : null}
 
             <p className="project-summary">{project.desc}</p>
 

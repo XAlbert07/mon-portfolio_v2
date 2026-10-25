@@ -1,4 +1,5 @@
 import Portfolio from "@/app/components/Portfolio";
+import { projects } from "@/app/data/projects";
 import { getSiteUrl, siteConfig } from "@/app/site-config";
 
 export default function Home() {
@@ -11,7 +12,7 @@ export default function Home() {
         "@id": `${siteUrl}/#person`,
         name: siteConfig.name,
         url: siteUrl,
-        jobTitle: "Developpeur React et Next.js freelance",
+        jobTitle: "Développeur React et Next.js freelance",
         description: siteConfig.description,
         email: siteConfig.email,
         sameAs: [siteConfig.github, siteConfig.linkedin],
@@ -30,15 +31,15 @@ export default function Home() {
           "TypeScript",
           "JavaScript",
           "Tailwind CSS",
-          "Integration de maquettes",
+          "Intégration de maquettes",
           "Refonte frontend",
-          "Interfaces web connectees",
+          "Interfaces web connectées",
         ],
       },
       {
         "@type": "ProfessionalService",
         "@id": `${siteUrl}/#service`,
-        name: `${siteConfig.name} - Developpeur React & Next.js`,
+        name: `${siteConfig.name} - Développeur React & Next.js`,
         url: siteUrl,
         description: siteConfig.description,
         areaServed: [
@@ -65,7 +66,7 @@ export default function Home() {
           "TypeScript",
           "JavaScript",
           "Tailwind CSS",
-          "Integration de maquettes",
+          "Intégration de maquettes",
         ],
       },
       {
@@ -78,6 +79,17 @@ export default function Home() {
         publisher: {
           "@id": `${siteUrl}/#person`,
         },
+      },
+      {
+        "@type": "ItemList",
+        "@id": `${siteUrl}/#projects`,
+        name: "Projets",
+        itemListElement: projects.map((project, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: project.title,
+          url: project.slug ? `${siteUrl}/projets/${project.slug}` : project.link,
+        })),
       },
       {
         "@type": "WebPage",

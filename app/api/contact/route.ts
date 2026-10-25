@@ -58,7 +58,7 @@ function buildEmailText(body: { name: string; email: string; message: string }, 
     "Message :",
     body.message,
     "",
-    `Envoye le : ${context.submittedAt}`,
+    `Envoyé le : ${context.submittedAt}`,
     `Page : ${context.page}`,
     `User-Agent : ${context.userAgent}`,
     `IP : ${context.ip}`,
@@ -90,7 +90,7 @@ function buildEmailHtml(body: { name: string; email: string; message: string }, 
         </div>
         <hr style="border:none; border-top:1px solid rgba(240,237,230,0.12); margin:24px 0;" />
         <div style="font-size:12px; line-height:1.7; color:rgba(240,237,230,0.54);">
-          <div>Envoye le : ${escapeHtml(context.submittedAt)}</div>
+          <div>Envoyé le : ${escapeHtml(context.submittedAt)}</div>
           <div>Page : ${escapeHtml(context.page)}</div>
           <div>User-Agent : ${escapeHtml(context.userAgent)}</div>
           <div>IP : ${escapeHtml(context.ip)}</div>
@@ -112,14 +112,14 @@ function formatProviderErrorMessage(message: string) {
   const normalizedMessage = message.toLowerCase();
 
   if (normalizedMessage.includes("verify a domain")) {
-    return "Le service d'email est connecte, mais l'adresse d'envoi doit encore etre verifiee sur Resend.";
+    return "Le service d'email est connecté, mais l'adresse d'envoi doit encore être vérifiée sur Resend.";
   }
 
   if (normalizedMessage.includes("api key")) {
-    return "La configuration de Resend est invalide. Verifiez RESEND_API_KEY.";
+    return "La configuration de Resend est invalide. Vérifiez RESEND_API_KEY.";
   }
 
-  return "Le service d'email a refuse le message. Verifiez la configuration de Resend.";
+  return "Le service d'email a refusé le message. Vérifiez la configuration de Resend.";
 }
 
 async function sendWithResend(body: { name: string; email: string; message: string }, request: Request) {
@@ -151,7 +151,7 @@ export async function POST(request: Request) {
     data = await request.json();
   } catch {
     return NextResponse.json(
-      { message: "Requete invalide." },
+      { message: "Requête invalide." },
       { status: 400 },
     );
   }
@@ -167,7 +167,7 @@ export async function POST(request: Request) {
 
   if (name.length < 2 || name.length > MAX_NAME_LENGTH) {
     return NextResponse.json(
-      { message: "Le nom doit contenir entre 2 et 80 caracteres." },
+      { message: "Le nom doit contenir entre 2 et 80 caractères." },
       { status: 400 },
     );
   }
@@ -182,7 +182,7 @@ export async function POST(request: Request) {
   if (message.length < MIN_MESSAGE_LENGTH || message.length > MAX_MESSAGE_LENGTH) {
     return NextResponse.json(
       {
-        message: `Le message doit contenir entre ${MIN_MESSAGE_LENGTH} et ${MAX_MESSAGE_LENGTH} caracteres.`,
+        message: `Le message doit contenir entre ${MIN_MESSAGE_LENGTH} et ${MAX_MESSAGE_LENGTH} caractères.`,
       },
       { status: 400 },
     );
@@ -199,7 +199,7 @@ export async function POST(request: Request) {
         return NextResponse.json(
           {
             message:
-              "Le formulaire est pret, mais l'envoi n'est pas encore configure. Ajoutez RESEND_API_KEY ou un webhook de contact.",
+              "Le formulaire est prêt, mais l'envoi n'est pas encore configuré. Ajoutez RESEND_API_KEY ou un webhook de contact.",
             fallbackEmail: siteConfig.email,
           },
           { status: 503 },
@@ -218,7 +218,7 @@ export async function POST(request: Request) {
 
       if (!response.ok) {
         return NextResponse.json(
-          { message: "Le service de soumission n'a pas accepte le message." },
+          { message: "Le service de soumission n'a pas accepté le message." },
           { status: 502 },
         );
       }
@@ -236,6 +236,6 @@ export async function POST(request: Request) {
   }
 
   return NextResponse.json({
-    message: "Message envoye. Je vous repondrai rapidement.",
+    message: "Message envoyé. Je vous répondrai rapidement.",
   });
 }

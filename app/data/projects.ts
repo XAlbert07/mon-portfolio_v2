@@ -1,6 +1,34 @@
-export const projects = [
+export type ProjectImage = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+};
+
+export type Project = {
+  id: number;
+  number: string;
+  title: string;
+  tag: string;
+  desc: string;
+  challenge: string;
+  outcome: string;
+  deliverables: string[];
+  stack: string[];
+  link: string;
+  github?: string;
+  /** Slug de la page d'étude de cas (/projets/[slug]), si elle existe. */
+  slug?: string;
+  /** Chiffres clés affichés sur le projet phare. */
+  facts?: { value: string; label: string }[];
+  /** Captures affichées sur l'accueil (la première est la principale). */
+  screenshots?: ProjectImage[];
+};
+
+export const projects: Project[] = [
   {
     id: 4,
+    number: "01",
     title: "Gestion de Stock",
     tag: "Application Web",
     desc: "Application de gestion de stock et de ventes pour un petit commerce : catalogue, réceptions, ventes, retours et inventaires, en FCFA.",
@@ -9,13 +37,39 @@ export const projects = [
     outcome:
       "Une application complète, de l'API PostgreSQL à l'interface, avec une démo en un clic en lecture seule, des tests automatisés et un déploiement continu.",
     deliverables: ["Mouvements de stock tracés", "Ventes et retours clients", "Démo en lecture seule"],
-    stack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
+    stack: ["React", "TypeScript", "Node.js", "Express", "PostgreSQL"],
     link: "https://gestion-stock-pied-three.vercel.app",
     github: "https://github.com/XAlbert07/gestion-stock",
-    number: "01",
+    slug: "gestion-stock",
+    facts: [
+      { value: "35", label: "produits dans la démo" },
+      { value: "~400", label: "ventes simulées sur 5 semaines" },
+      { value: "2", label: "suites de tests + CI GitHub Actions" },
+    ],
+    screenshots: [
+      {
+        src: "/projets/gestion-stock-tableau-de-bord.webp",
+        alt: "Tableau de bord de Gestion de Stock : produits actifs, ruptures, stocks faibles et activité des 7 derniers jours",
+        width: 1200,
+        height: 720,
+      },
+      {
+        src: "/projets/gestion-stock-ventes.webp",
+        alt: "Liste des ventes de Gestion de Stock, brouillons et ventes validées",
+        width: 1200,
+        height: 720,
+      },
+      {
+        src: "/projets/gestion-stock-stock.webp",
+        alt: "Page Stock de Gestion de Stock : niveaux, alertes et historique des mouvements",
+        width: 1200,
+        height: 720,
+      },
+    ],
   },
   {
     id: 1,
+    number: "02",
     title: "FasoMarket",
     tag: "Application Web",
     desc: "Plateforme de petites annonces avec authentification complète, gestion de profils vendeurs et base de données en temps réel.",
@@ -26,10 +80,10 @@ export const projects = [
     deliverables: ["Authentification", "Profils vendeurs", "Données temps réel"],
     stack: ["React", "TypeScript", "Tailwind", "Supabase"],
     link: "https://faso-market.vercel.app/",
-    number: "02",
   },
   {
     id: 2,
+    number: "03",
     title: "Site Vitrine Restaurant",
     tag: "Site Vitrine",
     desc: "Site web pour un restaurant gastronomique avec menu interactif et système de réservation.",
@@ -39,10 +93,10 @@ export const projects = [
     deliverables: ["Menu interactif", "Parcours de réservation", "Responsive premium"],
     stack: ["HTML", "CSS", "Tailwind", "JavaScript"],
     link: "https://restaurant-site-henna.vercel.app/",
-    number: "03",
   },
   {
     id: 3,
+    number: "04",
     title: "Landing Page Concours",
     tag: "Landing Page",
     desc: "Page d'atterrissage pour une plateforme de préparation aux concours, design simple et fluide.",
@@ -52,7 +106,5 @@ export const projects = [
     deliverables: ["Message clarifié", "Sections courtes", "Chargement rapide"],
     stack: ["HTML", "CSS", "Tailwind", "JavaScript"],
     link: "https://landing-page-c6efbe5g5-alberts-projects-394db913.vercel.app/",
-    number: "04",
   },
-] as const;
-
+];

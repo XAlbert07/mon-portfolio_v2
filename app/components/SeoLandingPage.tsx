@@ -59,7 +59,7 @@ export default function SeoLandingPage({
               <Link href="/" className="projects-page-link">
                 Accueil
               </Link>
-              <Link href="/projets" className="projects-page-link">
+              <Link href="/#projets" className="projects-page-link">
                 Projets
               </Link>
               <Link href="/#contact" className="cta-btn px-5 py-2.5 text-xs">
@@ -136,7 +136,7 @@ export default function SeoLandingPage({
             {relatedLinks.length ? (
               <div className="mt-8 grid gap-3">
                 <p className="font-mono-custom text-xs uppercase tracking-[0.08em] text-[rgba(240,237,230,0.35)]">
-                  Pages liees
+                  Pages liées
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {relatedLinks.map((link) => (
