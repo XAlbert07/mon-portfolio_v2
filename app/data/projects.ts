@@ -73,8 +73,30 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: 1,
+    id: 7,
     number: "02",
+    title: "Générateur de Devis et Factures",
+    tag: "Application Web",
+    desc: "Application pour créer des devis, les convertir en factures numérotées, suivre les paiements et produire des PDF figés, en F CFA.",
+    challenge:
+      "Garantir des montants exacts, une numérotation sans trou et des documents qui ne changent plus une fois envoyés, avec plusieurs entreprises isolées.",
+    outcome:
+      "Une application complète avec calculs sans nombres flottants, documents immuables et vérifiables, environ 80 tests et une démo accessible en un clic.",
+    deliverables: ["Calculs monétaires exacts", "Documents immuables", "Démo en un clic"],
+    stack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
+    link: "https://generateur-devis-facture.vercel.app/login",
+    github: "https://github.com/XAlbert07/generateur-devis-facture",
+    slug: "devis-facture",
+    thumb: {
+      src: "/projets/devis-facture-tableau-de-bord.webp",
+      alt: "Tableau de bord du Générateur de Devis et Factures : facturé, encaissé, à recevoir et devis en attente",
+      width: 1200,
+      height: 720,
+    },
+  },
+  {
+    id: 1,
+    number: "03",
     title: "FasoMarket",
     tag: "Application Web",
     desc: "Plateforme de petites annonces pour le Burkina Faso : messagerie en temps réel, avis liés à de vrais échanges, modération et application Android.",
@@ -94,7 +116,7 @@ export const projects: Project[] = [
   },
   {
     id: 5,
-    number: "03",
+    number: "04",
     title: "CV Creator Pro",
     tag: "Application Web",
     desc: "Générateur de CV gratuit et sans inscription : 22 modèles, aperçu en direct, export PDF et Word, données gardées dans le navigateur.",
@@ -115,7 +137,7 @@ export const projects: Project[] = [
   },
   {
     id: 6,
-    number: "04",
+    number: "05",
     title: "Web Digi",
     tag: "Site Vitrine",
     desc: "Site vitrine d'une agence web et infographie : 7 pages, services détaillés, FAQ et référencement soigné, sans framework.",
@@ -135,7 +157,7 @@ export const projects: Project[] = [
   },
   {
     id: 2,
-    number: "05",
+    number: "06",
     title: "Site Vitrine Restaurant",
     tag: "Site Vitrine",
     desc: "Site vitrine d'un restaurant gastronomique fictif : carte filtrable, effets 3D sur les plats et formulaire de réservation.",
@@ -157,7 +179,7 @@ export const projects: Project[] = [
   },
   {
     id: 3,
-    number: "06",
+    number: "07",
     title: "Landing Page Concours",
     tag: "Landing Page",
     desc: "Landing page d'un service de préparation aux concours : profils, méthode, tarifs en FCFA et inscription, en Tailwind CSS.",
